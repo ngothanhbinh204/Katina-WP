@@ -1,0 +1,77 @@
+{
+    "key": "group_team_page",
+    "title": "Team Page Content",
+    "fields": [
+        {
+            "key": "field_tab_team_banner",
+            "label": "Banner Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_team_banner_image",
+            "label": "Banner Image",
+            "name": "team_banner_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_team_banner_title",
+            "label": "Banner Title",
+            "name": "team_banner_title",
+            "type": "text"
+        },
+        {
+            "key": "field_team_banner_subtitle",
+            "label": "Banner Subtitle",
+            "name": "team_banner_subtitle",
+            "type": "text"
+        },
+        {
+            "key": "field_tab_team_mission",
+            "label": "Mission Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_team_mission_title",
+            "label": "Mission Title",
+            "name": "team_mission_title",
+            "type": "text"
+        },
+        {
+            "key": "field_team_mission_content",
+            "label": "Mission Content",
+            "name": "team_mission_content",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_team_mission_gallery",
+            "label": "Mission Images",
+            "name": "team_mission_gallery",
+            "type": "gallery",
+            "return_format": "array"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-our_team.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": ""
+}

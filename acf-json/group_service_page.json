@@ -1,0 +1,191 @@
+{
+    "key": "group_service_page",
+    "title": "Service Page Content",
+    "fields": [
+        {
+            "key": "field_tab_sp_banner",
+            "label": "Banner Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sp_banner_image",
+            "label": "Banner Image",
+            "name": "sp_banner_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_sp_banner_title",
+            "label": "Banner Title",
+            "name": "sp_banner_title",
+            "type": "text"
+        },
+        {
+            "key": "field_sp_banner_subtitle",
+            "label": "Banner Subtitle",
+            "name": "sp_banner_subtitle",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_tab_sp_history",
+            "label": "History Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sp_history_title",
+            "label": "Title",
+            "name": "sp_history_title",
+            "type": "text"
+        },
+        {
+            "key": "field_sp_history_list",
+            "label": "History List",
+            "name": "sp_history_list",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_sph_year",
+                    "label": "Year",
+                    "name": "year",
+                    "type": "text"
+                },
+                {
+                    "key": "field_sph_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                },
+                {
+                    "key": "field_sph_gallery",
+                    "label": "Images",
+                    "name": "gallery",
+                    "type": "gallery",
+                    "return_format": "array"
+                }
+            ]
+        },
+        {
+            "key": "field_tab_sp_stats",
+            "label": "Stats Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sp_stats_list",
+            "label": "Stats List",
+            "name": "sp_stats_list",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_sps_prefix",
+                    "label": "Prefix",
+                    "name": "prefix",
+                    "type": "text"
+                },
+                {
+                    "key": "field_sps_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "text"
+                },
+                {
+                    "key": "field_sps_suffix",
+                    "label": "Suffix",
+                    "name": "suffix",
+                    "type": "text"
+                },
+                {
+                    "key": "field_sps_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_tab_sp_services",
+            "label": "Services Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sp_services_title",
+            "label": "Title",
+            "name": "sp_services_title",
+            "type": "text"
+        },
+        {
+            "key": "field_sp_services_subtitle",
+            "label": "Subtitle",
+            "name": "sp_services_subtitle",
+            "type": "text"
+        },
+        {
+            "key": "field_sp_services_content",
+            "label": "Content",
+            "name": "sp_services_content",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_tab_sp_diff",
+            "label": "Difference Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_sp_diff_title",
+            "label": "Title",
+            "name": "sp_diff_title",
+            "type": "text"
+        },
+        {
+            "key": "field_sp_diff_list",
+            "label": "Difference List",
+            "name": "sp_diff_list",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_spd_icon",
+                    "label": "Icon (Material Symbol name)",
+                    "name": "icon",
+                    "type": "text"
+                },
+                {
+                    "key": "field_spd_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-service.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": ""
+}

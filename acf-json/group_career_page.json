@@ -1,0 +1,122 @@
+{
+    "key": "group_career_page",
+    "title": "Career Page Settings",
+    "fields": [
+        {
+            "key": "field_career_archive_banner",
+            "label": "Banner Image",
+            "name": "career_archive_banner",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_career_archive_title",
+            "label": "Banner Title",
+            "name": "career_archive_title",
+            "type": "text"
+        },
+        {
+            "key": "field_career_archive_subtitle",
+            "label": "Banner Subtitle",
+            "name": "career_archive_subtitle",
+            "type": "text"
+        },
+        {
+            "key": "field_career_highlight_text",
+            "label": "Highlight Text",
+            "name": "career_highlight_text",
+            "type": "text"
+        },
+        {
+            "key": "field_career_work_environment_title",
+            "label": "Work Environment Title",
+            "name": "career_work_environment_title",
+            "type": "text"
+        },
+        {
+            "key": "field_career_work_environment_list",
+            "label": "Work Environment List",
+            "name": "career_work_environment_list",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_cwe_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_cwe_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                }
+            ]
+        },
+        {
+            "key": "field_career_training_title",
+            "label": "Training Title",
+            "name": "career_training_title",
+            "type": "text"
+        },
+        {
+            "key": "field_career_training_list",
+            "label": "Training List",
+            "name": "career_training_list",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_ctl_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_ctl_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ctl_description",
+                    "label": "Description",
+                    "name": "description",
+                    "type": "textarea"
+                }
+            ]
+        },
+        {
+            "key": "field_career_list_title",
+            "label": "List Title",
+            "name": "career_list_title",
+            "type": "text"
+        },
+        {
+            "key": "field_career_list_subtitle",
+            "label": "List Subtitle",
+            "name": "career_list_subtitle",
+            "type": "textarea"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "options_page",
+                "operator": "==",
+                "value": "acf-options-theme-settings"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

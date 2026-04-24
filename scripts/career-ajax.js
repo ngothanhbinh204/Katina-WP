@@ -83,4 +83,21 @@ jQuery(document).ready(function($) {
             }
         });
     });
+
+
+      document.addEventListener('change', function (e) {
+        if (e.target.matches('.wpcf7-file')) {
+            const fileName = e.target.files[0]?.name || '';
+            const wrapper = e.target.closest('.form-input-file');
+            
+            if (wrapper) {
+                wrapper.querySelector('.file-name-display').textContent = fileName;
+                wrapper.querySelector('.btn-remove-file').style.display = fileName ? 'block' : 'none';
+                console.log("có");
+            } else {
+                console.log("Không có");
+            }
+        }
+        });
 });
+

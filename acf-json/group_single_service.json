@@ -1,0 +1,51 @@
+{
+    "key": "group_single_service",
+    "title": "Service Details",
+    "fields": [
+        {
+            "key": "field_service_information_list",
+            "label": "Information List",
+            "name": "information_list",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_sil_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_sil_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                },
+                {
+                    "key": "field_sil_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "service"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

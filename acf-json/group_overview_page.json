@@ -1,0 +1,126 @@
+{
+    "key": "group_overview_page",
+    "title": "Overview Page Content",
+    "fields": [
+        {
+            "key": "field_tab_overview_banner",
+            "label": "Banner Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_overview_banner_image",
+            "label": "Banner Image",
+            "name": "overview_banner_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_overview_banner_title",
+            "label": "Banner Title",
+            "name": "overview_banner_title",
+            "type": "text"
+        },
+        {
+            "key": "field_overview_banner_subtitle",
+            "label": "Banner Subtitle",
+            "name": "overview_banner_subtitle",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_tab_overview_mission",
+            "label": "Mission Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_overview_mission_title",
+            "label": "Title",
+            "name": "overview_mission_title",
+            "type": "text"
+        },
+        {
+            "key": "field_overview_mission_content",
+            "label": "Content",
+            "name": "overview_mission_content",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_overview_mission_left_images",
+            "label": "Left Images",
+            "name": "overview_mission_left_images",
+            "type": "gallery",
+            "return_format": "array",
+            "instructions": "Select 2 images for the left column."
+        },
+        {
+            "key": "field_overview_mission_right_image",
+            "label": "Right Image",
+            "name": "overview_mission_right_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_tab_overview_values",
+            "label": "Values Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_overview_values_title",
+            "label": "Title",
+            "name": "overview_values_title",
+            "type": "text"
+        },
+        {
+            "key": "field_overview_values_list",
+            "label": "Values List",
+            "name": "overview_values_list",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_ov_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ov_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                },
+                {
+                    "key": "field_ov_image",
+                    "label": "Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array"
+                }
+            ]
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-overview.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": ""
+}

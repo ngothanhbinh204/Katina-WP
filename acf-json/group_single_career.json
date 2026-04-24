@@ -1,0 +1,113 @@
+{
+    "key": "group_single_career",
+    "title": "Career Detail",
+    "fields": [
+        {
+            "key": "field_career_image",
+            "label": "Thumbnail Image",
+            "name": "career_image",
+            "type": "image",
+            "return_format": "array",
+            "instructions": "Leave blank to use Featured Image"
+        },
+        {
+            "key": "field_career_information",
+            "label": "Career Information",
+            "name": "career_information",
+            "type": "group",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_ci_position",
+                    "label": "Vị trí",
+                    "name": "position",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ci_level",
+                    "label": "Chức vụ",
+                    "name": "level",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ci_degree",
+                    "label": "Yêu cầu bằng cấp",
+                    "name": "degree",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ci_salary",
+                    "label": "Mức lương",
+                    "name": "salary",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ci_quantity",
+                    "label": "Số lượng ứng tuyển",
+                    "name": "quantity",
+                    "type": "text"
+                },
+                {
+                    "key": "field_ci_location",
+                    "label": "Địa điểm làm việc",
+                    "name": "location",
+                    "type": "text"
+                },
+                {
+                "key": "field_ci_deadline",
+                "label": "Hạn nộp hồ sơ",
+                "name": "application_deadline",
+                "type": "date_picker",
+                "display_format": "d/m/Y",
+                "return_format": "Y-m-d",
+                "first_day": 1
+            }
+            ]
+        },
+        {
+            "key": "field_career_job_descriptions",
+            "label": "Job Descriptions",
+            "name": "career_job_descriptions",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_cjd_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_cjd_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                }
+            ]
+        },
+        {
+            "key": "field_career_application_file",
+            "label": "Application File",
+            "name": "career_application_file",
+            "type": "file",
+            "return_format": "url"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "post_type",
+                "operator": "==",
+                "value": "career"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

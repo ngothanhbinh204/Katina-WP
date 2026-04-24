@@ -35,7 +35,7 @@ $items = get_sub_field('items');
                     <div class="scrollbar-wrap white grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-1">
                         <?php
                         $args = array(
-                            'post_type' => 'tuyen-dung',
+                            'post_type' => 'career',
                             'posts_per_page' => 8,
                             'orderby' => 'date',
                             'order' => 'DESC'
@@ -51,7 +51,8 @@ $items = get_sub_field('items');
                             <div class="recruit-item relative p-4 group lg:py-3 border-t border-white border-opacity-50 transition hover:bg-secondary-bg">
                                 <div class="text">
                                     <h3><a href="<?php the_permalink(); ?>" class="heading-4 text-white group-hover:text-primary-1 transition"><?php the_title(); ?></a></h3>
-                                    <time class="text-white mt-2 group-hover:text-primary-1 transition"><?php echo $application_deadline; ?></time>
+                                    <time class="text-white mt-2 group-hover:text-primary-1 transition">
+                                        <?php echo $application_deadline ? date('d/m/Y', $application_deadline) : ''; ?></time>
                                 </div>
                             </div>
                         <?php

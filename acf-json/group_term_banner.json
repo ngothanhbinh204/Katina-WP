@@ -1,0 +1,50 @@
+{
+    "key": "group_term_banner",
+    "title": "Category Banner Settings",
+    "fields": [
+        {
+            "key": "field_term_banner_image",
+            "label": "Banner Image",
+            "name": "term_banner_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_term_banner_title",
+            "label": "Banner Title",
+            "name": "term_banner_title",
+            "type": "text",
+            "instructions": "Leave blank to use default category name"
+        },
+        {
+            "key": "field_term_banner_subtitle",
+            "label": "Banner Subtitle",
+            "name": "term_banner_subtitle",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "category"
+            }
+        ],
+        [
+            {
+                "param": "taxonomy",
+                "operator": "==",
+                "value": "project-category"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": "",
+    "active": true,
+    "description": ""
+}

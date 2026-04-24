@@ -1,109 +1,145 @@
+    </main>
 
-</main>
-<?php
-$footer = get_field('footer', 'option');
-$title = $footer['title'];
-$address_infomation = $footer['address_infomation'];
-$contact = $footer['contact'];
-$socials = $footer['socials'];
-$copyright = $footer['copyright'];
-$image = $footer['image'];
-?>
-<footer>
-	<section class="footer relative overflow-hidden text-white pad-8 section-blue nav-white">
-		<div class="img-wrap zoom-in overflow-hidden absolute bottom-0 right-4 z-100" data-aos="fade-left" data-aos-easing="ease-in-out-back" data-aos-delay="0" data-aos-duration="700"><a><img src="<?= $image['url']; ?>" alt="<?= $image['alt']; ?>"></a></div>
-		<div class="container relative z-50">
-			<div class="row"> 
-				<div class="col w-full lg:w-5/12">
-					<h2 class="heading-1-up uppercase mb-7 text-white lg:mb-11" data-aos="fade-down" data-aos-easing="ease-in-out-back" data-aos-delay="0" data-aos-duration="700"><?= $title; ?></h2>
-					<div class="network">
-						<ol data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-delay="200" data-aos-duration="700">
-							<?php foreach ($address_infomation as $item) : ?>
-								<li class="mb-6">
-									<div class="item">
-										<div class="title mb-2 flex-start"><em class="fa-regular fa-location-dot"></em>
-											<div class="heading-5 uppercase"><?= $item['name']; ?></div>
-										</div>
-										<div class="text body-1">
-											<?= $item['address']; ?>
-										</div>
-									</div>
-								</li>
-							<?php endforeach; ?>
-						</ol>
-					</div>
-					<h4 class="heading-5 contact-title uppercase mb-4" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-delay="400" data-aos-duration="700"><?= $contact['title']; ?></h4>
-					<address class="not-italic" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-delay="600" data-aos-duration="700">
-						<ul>
-							<?php foreach ($contact['infor'] as $item) : ?>
-								<li>
-									<div class="label mr-2"><?= $item['label']; ?></div>
-									<div class="txt">
-										<?= $item['text']; ?>
-									</div>
-								</li>
-							<?php endforeach; ?>
-						</ul>
-					</address>
-					<div class="social py-6 lg:py-8" data-aos="fade-up" data-aos-easing="ease-in-out-back" data-aos-delay="600" data-aos-duration="800">
-						<div class="wrap flex-center  lg:flex-start rem:gap-[10px]">
-							<?php foreach ($socials as $item) : ?>
-								<a href="<?= $item['link']; ?>" target="_blank"> <em class="fa-brands fa-<?= $item['icon']; ?>"></em></a>
-							<?php endforeach; ?>
-						</div>
-					</div>
-					<div class="copyright body-1 text-white text-opacity-50 max-lg:text-center" data-aos="fade-right" data-aos-easing="ease-in-out-back" data-aos-delay="0" data-aos-duration="700">
-						<?= $copyright; ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-</footer>
+    <footer class="footer xl:pt-15 xl:pb-20 py-10">
+        <?php 
+        $footer_bg = get_field('footer_bg', 'option');
+        if ($footer_bg): ?>
+            <div class="color"> <img src="<?php echo esc_url($footer_bg['url']); ?>" alt="<?php echo esc_attr($footer_bg['alt']); ?>"></div>
+        <?php else: ?>
+            <div class="color"> <img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/color-bg.png" alt=""></div>
+        <?php endif; ?>
+        
+        <div class="container-fluid">
+            <div class="footer-top">
+                <div class="footer-wrapper grid lg:grid-cols-2 grid-cols-1 xl:rem:gap-[438px] gap-base">
+                    <div class="col-left flex flex-col justify-between">
+                        <div class="footer-logo"> 
+                            <a class="img-ratio ratio:pt-[126_239]" href="<?php echo esc_url(home_url('/')); ?>"> 
+                                <?php 
+                                $footer_logo = get_field('footer_logo', 'option');
+                                if ($footer_logo): ?>
+                                    <img class="lozad" data-src="<?php echo esc_url($footer_logo['url']); ?>" alt="<?php echo esc_attr($footer_logo['alt']); ?>" />
+                                <?php else: ?>
+                                    <img class="lozad" data-src="<?php echo esc_url(get_template_directory_uri()); ?>/img/logo-footer.png" alt="Footer Logo" />
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                        <div class="wrap-content">
+                            <div class="footer-social">
+                                <ul>
+                                    <?php if (have_rows('social_media', 'option')): ?>
+                                        <?php while (have_rows('social_media', 'option')): the_row(); 
+                                            $icon = get_sub_field('icon');
+                                            $title = get_sub_field('title');
+                                            $link = get_sub_field('link');
+                                        ?>
+                                        <li> 
+                                            <a href="<?php echo esc_url($link); ?>" target="_blank">
+                                                <div class="icon"> <i class="<?php echo esc_attr($icon); ?>"></i></div>
+                                                <?php if ($title): ?><span><?php echo esc_html($title); ?></span><?php endif; ?>
+                                            </a>
+                                        </li>
+                                        <?php endwhile; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                            <div class="footer-bottom body-4">
+                                <div class="text body-4 font-normal text-black/80 mb-4">
+                                    <?php 
+                                    $copyright = get_field('footer_copyright', 'option');
+                                    if ($copyright) {
+                                        echo wp_kses_post($copyright);
+                                    } else {
+                                        echo '© Katina Capital Partners. All Rights Reserved. Website designed by CanhCam.';
+                                    }
+                                    ?>
+                                </div>
+                                <ul>
+                                    <?php if (have_rows('footer_bottom_links', 'option')): ?>
+                                        <?php while (have_rows('footer_bottom_links', 'option')): the_row(); 
+                                            $link = get_sub_field('link');
+                                            if ($link):
+                                        ?>
+                                            <li><a href="<?php echo esc_url($link['url']); ?>" target="<?php echo esc_attr($link['target']); ?>"><?php echo esc_html($link['title']); ?></a></li>
+                                        <?php 
+                                            endif;
+                                        endwhile; ?>
+                                    <?php endif; ?>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-right">
+                        <div class="footer-menu">
+                            <?php
+                            wp_nav_menu(array(
+                                'theme_location' => 'footer-menu',
+                                'container'      => false,
+                                'menu_class'     => '',
+                                'fallback_cb'    => false,
+                            ));
+                            ?>
+                        </div>
+                        <div class="nav-contact flex flex-col gap-2 body-1">
+                            <?php if (have_rows('contact_info', 'option')): ?>
+                                <?php while (have_rows('contact_info', 'option')): the_row(); 
+                                    $label = get_sub_field('label');
+                                    $content = get_sub_field('content');
+                                ?>
+                                <div class="item">
+                                    <?php if ($label): ?><label for=""><?php echo esc_html($label); ?></label><?php endif; ?>
+                                    <div class="content"><?php echo wp_kses_post($content); ?></div>
+                                </div>
+                                <?php endwhile; ?>
+                            <?php endif; ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="tool-fixed-cta">
+            <div class="btn button-to-top">
+                <div class="btn-icon">
+                    <div class="icon"> </div>
+                </div>
+            </div>
+            
+            <?php 
+            $fixed_phone_text = get_field('fixed_phone_text', 'option');
+            if ($fixed_phone_text):
+            ?>
+            <div class="btn btn-content bg-Primary-1" href="">
+                <div class="btn-icon">
+                    <div class="icon"><i class="fa-light fa-phone"></i></div>
+                </div>
+                <div class="content">
+                    <?php echo wp_kses_post($fixed_phone_text); ?>
+                </div>
+            </div>
+            <?php endif; ?>
+            
+            <?php if (have_rows('fixed_socials', 'option')): ?>
+            <div class="btn btn-content btn-social">
+                <div class="btn-icon">
+                    <div class="icon"><i class="fa-light fa-messages"></i></div>
+                </div>
+                <div class="content">
+                    <ul>
+                        <?php while (have_rows('fixed_socials', 'option')): the_row(); 
+                            $icon = get_sub_field('icon');
+                            $link = get_sub_field('link');
+                        ?>
+                        <li> <a href="<?php echo esc_url($link); ?>" target="_blank"> <i class="<?php echo esc_attr($icon); ?>"></i></a></li>
+                        <?php endwhile; ?>
+                    </ul>
+                </div>
+            </div>
+            <?php endif; ?>
+        </div>
+    </footer>
 
-<?php $cta = $footer['cta']; ?>
-<div class="sidenav-group">
-	<a class="back-to-top cursor-pointer"  aria-label="Back to top" ><em class="fa-regular fa-arrow-up-to-line"></em></a>
-	<ul>
-		<?php if($cta['quote']): ?>
-			<li>
-				<a class="wrap" href="<?php echo $cta['quote']['link']['url']; ?>" target="<?php echo $cta['quote']['link']['target']; ?>">
-					<div class="icon">
-						<?php echo $cta['quote']['icon']; ?>
-					</div>
-					<div class="txt-grid-span">
-						<div><span><?php echo $cta['quote']['link']['title']; ?></span></div>
-					</div>
-				</a>
-			</li>
-		<?php endif; ?>
-		<?php if($cta['contact']): ?>
-			<li>
-				<div class="wrap">
-					<div class="icon">
-						<em class="fa-solid fa-messages"></em>
-					</div>
-					<div class="txt-grid-span">
-						<div>
-							<div class="group flex-center gap-2 pl-2 pr-3 border-l border-white border-opacity-40">
-								<?php if($cta['contact']['facebook']): ?>
-									<a href="<?php echo $cta['contact']['facebook']; ?>" target="_blank"><em class="fa-brands fa-facebook-messenger"></em></a>
-								<?php endif; ?>
-								<?php if($cta['contact']['whatsapp']): ?>
-									<a href="<?php echo $cta['contact']['whatsapp']; ?>" target="_blank"><em class="fa-brands fa-whatsapp"></em></a>
-								<?php endif; ?>
-							</div>
-						</div>
-					</div>
-				</div>
-			</li>
-		<?php endif; ?>
-	</ul>
-</div>
-<?php if (stripos($_SERVER['HTTP_USER_AGENT'], 'Chrome-Lighthouse') === false) : ?>
-	<?php wp_footer() ?>
-<?php endif; ?>
-<?= get_field('field_config_body', 'options') ?>
+    <?php wp_footer(); ?>
+    <?php echo get_field('field_config_body', 'options'); ?>
 </body>
-
 </html>

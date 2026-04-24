@@ -1,118 +1,101 @@
 <!DOCTYPE html>
-<html <?= language_attributes() ?>>
-
+<html <?php language_attributes(); ?>>
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<link rel="preconnect" href="https://fonts.googleapis.com">
-	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-	<?php if (stripos($_SERVER['HTTP_USER_AGENT'], 'Chrome-Lighthouse') === false): ?>
-	<?php endif; ?>
-	<?php wp_head(); ?>
-	<?= get_field('field_config_head', 'options') ?>
-		<?php
-
-
-
-	$header_options = get_field('header_options', 'option');
-
-	$header_social = isset($header_options['header_social']) ? $header_options['header_social'] : '';
-
-
-
-	?>
-
-
+    <meta charset="<?php bloginfo('charset'); ?>">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&amp;display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap" rel="stylesheet">
+    
+    <?php wp_head(); ?>
+    <?php echo get_field('field_config_head', 'options'); ?>
 </head>
 
-<body <?php body_class(get_field('add_class_body', get_the_ID())) ?>>
-	<header class="fixed z-999 top-0 left-0 right-0 w-full transition max-xl:bg-white " id="header">
-		<div class="container relative flex-between z-50 h-full">
-			<div class="header-left relative z-40 flex-start">
-				<div class="site-menu-toggle relative z-100" tabindex="-1" aria-label="Toggle Site Menu">
-					<div class="hamburger hamburger--elastic relative z-50">
-						<div class="hamburger-box">
-							<div class="hamburger-inner"></div>
-						</div>
-					</div>
-					<div class="menu-overlay"></div>
-				</div>
-				<div class="search-wrap relative z-50 ml-6">
-					<div class="search-toggle"></div>
-				</div>
-			</div>
-			<div class="nav-brand z-50 pointer-events-auto z-50">
-				<?php echo get_custom_logo(); ?>
-			</div>
-			<div class="header-right relative z-40">
-				<div class="language-wrap">
-					<div class="wpml-ls wpml-ls-legacy-list-horizontal wpml-ls-statics-shortcode_actions">
-						<?php echo do_shortcode('[wpml_language_selector_widget]'); ?>
-					</div>
-				</div>
-			</div>
-		</div>
-	</header>
+<body <?php body_class(); ?>>
+    <?php wp_body_open(); ?>
+    
+    <header class="header">
+        <div class="header-container xl:px-20 px-4">
+            <div class="header-wrapper">
+                <div class="header-logo">
+                    <a href="<?php echo esc_url(home_url('/')); ?>" alt="<?php echo esc_attr(get_bloginfo('name')); ?>"> 
+                        <?php 
+                        $header_logo = get_field('header_logo', 'option');
+                        if ($header_logo): ?>
+                            <img class="lozad" data-src="<?php echo esc_url($header_logo['url']); ?>" alt="<?php echo esc_attr($header_logo['alt']); ?>" />
+                        <?php else: ?>
+                            <img class="lozad" data-src="<?php echo esc_url(get_template_directory_uri()); ?>/img/logo.png" alt="Logo" />
+                        <?php endif; ?>
+                    </a>
+                </div>
+                <div class="header-right">
+                    <div class="header-right-inner">
+                        <div class="header-language">
+                            <?php do_action('wpml_add_language_selector'); ?>
+                        </div>
+                        <div class="header-search">
+                            <i class="fa-regular fa-magnifying-glass"></i>
+                        </div>
+                        <div class="header-bar"><i class="fa-light fa-bars"></i></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
 
+    <div class="nav-mobile fixed top-header right-0 w-full z-[200]">
+        <div class="nav-main grid grid-cols-[calc(84/800*100%)_1fr] pl-5 h-full py-5 xl:rem:gap-[54px] gap-base">
+            <div class="wrap-title flex flex-col items-center justify-between">
+                <div class="item">PARTNER</div>
+                <div class="item">CAPITAL</div>
+                <div class="item">KATINA</div>
+            </div>
+            <div class="nav-wrapper h-full flex flex-col relative flex-1 overflow-hidden xl:pr-20 pr-10">
+                <div class="close-nav"> <i class="fa-light fa-xmark"></i></div>
+                <div class="nav-wrapper-inner overflow-auto overflow-x-hidden flex flex-col justify-between">
+                    <nav>
+                        <?php
+                        wp_nav_menu(array(
+                            'theme_location' => 'header-menu',
+                            'container'      => false,
+                            'menu_class'     => '',
+                            'fallback_cb'    => false,
+                        ));
+                        ?>
+                    </nav>
+                </div>
+                
+                <div class="nav-contact flex flex-col gap-2">
+                    <?php if (have_rows('contact_info', 'option')): ?>
+                        <?php while (have_rows('contact_info', 'option')): the_row(); 
+                            $label = get_sub_field('label');
+                            $content = get_sub_field('content');
+                        ?>
+                        <div class="item">
+                            <?php if ($label): ?><label for=""><?php echo esc_html($label); ?></label><?php endif; ?>
+                            <div class="content"><?php echo wp_kses_post($content); ?></div>
+                        </div>
+                        <?php endwhile; ?>
+                    <?php endif; ?>
+                </div>
+            </div>
+        </div>
+    </div>
 
+    <div class="header-search-form">
+        <div class="close flex items-center justify-center absolute top-0 right-0 bg-white text-3xl cursor-pointer w-12.5 h-12.5">
+            <i class="fa-light fa-xmark"></i>
+        </div>
+        <div class="container">
+            <div class="wrap-form-search-product">
+                <form class="productsearchbox" action="<?php echo esc_url(home_url('/')); ?>" method="GET">
+                    <input type="text" name="s" placeholder="<?php esc_attr_e('Tìm kiếm thông tin', 'canhcamtheme'); ?>" value="<?php echo get_search_query(); ?>">
+                    <button type="submit"><i class="fa-light fa-magnifying-glass"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
 
-	<form class="searchbox" action="<?php bloginfo('url') ?>/" method="GET" role="form">
-		<div class="search-overlay">
-			<div class="container">
-				<input class="w-full" name="s" class="form-control" type="text"
-					placeholder="<?php _e('Tìm kiếm', 'canhcamtheme'); ?>">
-
-
-
-				<button type="submit" tabindex="-1" aria-label="Search Button"><em
-						class="fa-regular fa-magnifying-glass"></em></button>
-
-			</div>
-		</div>
-	</form>
-
-	<div class="mobile-nav-wrap">
-		<div class="block-wrap">
-			<div class="scrollbar-wrap white">
-				<nav class="nav-primary-menu">
-					<?php
-					wp_nav_menu(array(
-						'theme_location' => 'header-menu',
-						'menu_id' => 'menu-site-menu',
-						'container' => false,
-						'menu_class' => 'nav',
-					));
-					?>
-				</nav>
-			</div>
-			<div class="header-social">
-				<div class="social pt-10 lg:pt-15">
-					<div class="wrap flex-center  lg:flex-start rem:gap-[12px]">
-
-						<?php foreach ($header_social as $item): 
-							
-							
-							?>
-
-
-
-							<a rel="noopener noreferrer" target="_blank" <?php if (!empty($item['link']))
-								echo 'href="' . $item['link'] . '"'; ?>>
-								<?php if (!empty($item['icon'])): ?>
-									<?= $item['icon'] ?>
-								<?php elseif (!empty($item['image'])): ?>
-
-									<?php echo wp_get_attachment_image($item['image'], 'full', array('class' => 'img-wp')); ?>
-
-								<?php endif; ?>
-							</a>
-						<?php endforeach; ?>
-
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-	<main>
+    <main>

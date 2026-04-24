@@ -1,0 +1,278 @@
+{
+    "key": "group_home_page",
+    "title": "Home Page Content",
+    "fields": [
+        {
+            "key": "field_tab_hero",
+            "label": "Hero Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_hero_slides",
+            "label": "Hero Slides",
+            "name": "hero_slides",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_hero_image",
+                    "label": "Background Image",
+                    "name": "image",
+                    "type": "image",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_hero_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "wysiwyg"
+                }
+            ]
+        },
+        {
+            "key": "field_tab_about",
+            "label": "About Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_about_title",
+            "label": "Title",
+            "name": "about_title",
+            "type": "text"
+        },
+        {
+            "key": "field_about_subtitle",
+            "label": "Subtitle",
+            "name": "about_subtitle",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_about_content",
+            "label": "Content",
+            "name": "about_content",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_about_button",
+            "label": "Button",
+            "name": "about_button",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
+            "key": "field_about_stats",
+            "label": "Statistics",
+            "name": "about_stats",
+            "type": "repeater",
+            "layout": "table",
+            "sub_fields": [
+                {
+                    "key": "field_as_prefix",
+                    "label": "Prefix",
+                    "name": "prefix",
+                    "type": "text"
+                },
+                {
+                    "key": "field_as_number",
+                    "label": "Number",
+                    "name": "number",
+                    "type": "number"
+                },
+                {
+                    "key": "field_as_suffix",
+                    "label": "Suffix (e.g. B, +)",
+                    "name": "suffix",
+                    "type": "text"
+                },
+                {
+                    "key": "field_as_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                }
+            ]
+        },
+        {
+            "key": "field_about_image",
+            "label": "Side Image",
+            "name": "about_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_tab_values",
+            "label": "Our Values Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_values_title",
+            "label": "Main Title",
+            "name": "values_title",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_values_line",
+            "label": "Line Image",
+            "name": "values_line",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_values_list",
+            "label": "Values List",
+            "name": "values_list",
+            "type": "repeater",
+            "layout": "row",
+            "sub_fields": [
+                {
+                    "key": "field_vl_gallery",
+                    "label": "Slider Images",
+                    "name": "gallery",
+                    "type": "gallery",
+                    "return_format": "array"
+                },
+                {
+                    "key": "field_vl_title",
+                    "label": "Value Title",
+                    "name": "title",
+                    "type": "text"
+                },
+                {
+                    "key": "field_vl_content",
+                    "label": "Value Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                }
+            ]
+        },
+        {
+            "key": "field_tab_services",
+            "label": "Services Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_services_title",
+            "label": "Title",
+            "name": "services_title",
+            "type": "text"
+        },
+        {
+            "key": "field_services_cover",
+            "label": "Cover Image",
+            "name": "services_cover",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_services_bg",
+            "label": "Section Background",
+            "name": "services_bg",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_services_list",
+            "label": "Services List",
+            "name": "services_list",
+            "type": "relationship",
+            "post_type": [
+                "service"
+            ],
+            "taxonomy": "",
+            "filters": [
+                "search",
+                "taxonomy"
+            ],
+            "elements": "",
+            "min": "",
+            "max": "",
+            "return_format": "object"
+        },
+        {
+            "key": "field_tab_partners",
+            "label": "Partners Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_partners_gallery",
+            "label": "Partners Logos",
+            "name": "partners_gallery",
+            "type": "gallery",
+            "return_format": "array"
+        },
+        {
+            "key": "field_tab_media",
+            "label": "Media Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_media_title",
+            "label": "Title",
+            "name": "media_title",
+            "type": "text"
+        },
+        {
+            "key": "field_tab_contact",
+            "label": "Contact Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_decor",
+            "label": "Decor Image",
+            "name": "contact_decor",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_contact_title",
+            "label": "Title",
+            "name": "contact_title",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_desc",
+            "label": "Description",
+            "name": "contact_desc",
+            "type": "wysiwyg"
+        },
+        {
+            "key": "field_contact_form",
+            "label": "Contact Form Shortcode",
+            "name": "contact_form_shortcode",
+            "type": "text"
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-home.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": ""
+}

@@ -56,11 +56,9 @@
 
 						'page',
 
-						'du-an',
+						'project',
 
-						'van-hoa-doanh-nghiep',
-
-						'tuyen-dung'
+						'career'
 
 					),
 
