@@ -73,9 +73,9 @@
                         <div class="footer-menu">
                             <?php
                             wp_nav_menu(array(
-                                'theme_location' => 'footer-menu',
+                                'theme_location' => 'footer-1',
                                 'container'      => false,
-                                'menu_class'     => '',
+                                'menu_class'     => 'footer-menu-1',
                                 'fallback_cb'    => false,
                             ));
                             ?>

@@ -3,22 +3,22 @@
     "title": "Career Page Settings",
     "fields": [
         {
-            "key": "field_career_archive_banner",
+            "key": "field_career_banner_image",
             "label": "Banner Image",
-            "name": "career_archive_banner",
+            "name": "career_banner_image",
             "type": "image",
             "return_format": "array"
         },
         {
-            "key": "field_career_archive_title",
+            "key": "field_career_banner_title",
             "label": "Banner Title",
-            "name": "career_archive_title",
+            "name": "career_banner_title",
             "type": "text"
         },
         {
             "key": "field_career_archive_subtitle",
             "label": "Banner Subtitle",
-            "name": "career_archive_subtitle",
+            "name": "career_banner_subtitle",
             "type": "text"
         },
         {
@@ -28,18 +28,18 @@
             "type": "text"
         },
         {
-            "key": "field_career_work_environment_title",
-            "label": "Work Environment Title",
-            "name": "career_work_environment_title",
-            "type": "text"
-        },
-        {
             "key": "field_career_work_environment_list",
             "label": "Work Environment List",
             "name": "career_work_environment_list",
             "type": "repeater",
             "layout": "block",
             "sub_fields": [
+                {
+                    "key": "field_cwe_title",
+                    "label": "Title",
+                    "name": "title",
+                    "type": "text"
+                },
                 {
                     "key": "field_cwe_image",
                     "label": "Image",
@@ -105,9 +105,9 @@
     "location": [
         [
             {
-                "param": "options_page",
+                "param": "page_template",
                 "operator": "==",
-                "value": "acf-options-theme-settings"
+                "value": "templates/template-career.php"
             }
         ]
     ],

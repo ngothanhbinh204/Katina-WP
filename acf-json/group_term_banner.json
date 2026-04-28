@@ -20,7 +20,7 @@
             "key": "field_term_banner_subtitle",
             "label": "Banner Subtitle",
             "name": "term_banner_subtitle",
-            "type": "text"
+            "type": "wysiwyg"
         }
     ],
     "location": [

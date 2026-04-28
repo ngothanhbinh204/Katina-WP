@@ -233,7 +233,7 @@ add_action('wp_enqueue_scripts', function() {
     $ajax_url = admin_url('admin-ajax.php');
     
     // Career archive page scripts
-    if(is_post_type_archive('career') || is_archive('career')) {
+    if(is_post_type_archive('career') || is_archive('career') || is_page_template('templates/template-career.php')) {
         wp_enqueue_script('career-ajax', get_template_directory_uri() . '/scripts/career-ajax.js', ['jquery'], GENERATE_VERSION, true);
         wp_localize_script('career-ajax', 'ajax_object', [
             'ajax_url' => $ajax_url,
@@ -264,14 +264,17 @@ function load_more_careers() {
         'posts_per_page' => $per_page,
         'post_status' => 'publish',
         'paged' => $page,
-        'tax_query' => array(
+    );
+    
+    if (!empty($taxonomy) && !empty($term_id) && $taxonomy !== 'undefined' && $term_id !== 'undefined') {
+        $args['tax_query'] = array(
             array(
                 'taxonomy' => $taxonomy,
                 'field' => 'term_id',
                 'terms' => $term_id,
             ),
-        ),
-    );
+        );
+    }
     
     $query = new WP_Query($args);
     $count = $start_count + 1;
@@ -285,10 +288,10 @@ function load_more_careers() {
             $deadline = isset($information['application_deadline']) ? $information['application_deadline'] : '';
             ?>
             <tr>
-                <td data-attr="STT"><?php echo sprintf("%02d", $count); ?></td>
-                <td data-attr="Vị trí"><a class="title" href="<?php the_permalink(); ?>"><?php echo esc_html($position); ?></a></td>
-                <td data-attr="NƠI LÀM VIỆC"><?php echo esc_html($location); ?></td>
-                <td data-attr="hạn nộp hồ sơ"><?php echo $deadline ? date('d/m/Y', strtotime($deadline)) : ''; ?></td>
+                <td data-attr="<?php _e('NO', 'canhcamtheme') ?>"><?php echo sprintf("%02d", $count); ?></td>
+                <td data-attr="<?php _e('Locations', 'canhcamtheme') ?>"><a class="title" href="<?php the_permalink(); ?>"><?php echo esc_html($position); ?></a></td>
+                <td data-attr="<?php _e('Location', 'canhcamtheme') ?>"><?php echo esc_html($location); ?></td>
+                <td data-attr="<?php _e('Deadline', 'canhcamtheme') ?>"><?php echo $deadline ? date('d/m/Y', strtotime($deadline)) : ''; ?></td>
                 <td>
                     <div class="flex-center btn-wrap"> 
                         <a class="btn btn-tertiary" href="<?php the_permalink(); ?>">
@@ -541,3 +544,26 @@ add_action( 'after_switch_theme', 'flush_rewrite_rules' );
 
 
 
+function get_homepage_title_current_lang() {
+    $home_id = get_option('page_on_front');
+
+    if (!$home_id) return '';
+
+    if (function_exists('apply_filters')) {
+        $home_id = apply_filters('wpml_object_id', $home_id, 'page', true);
+    }
+
+    return get_the_title($home_id);
+}
+
+add_filter('rank_math/frontend/breadcrumb/items', function($crumbs) {
+
+    $title = get_homepage_title_current_lang();
+
+    if ($title) {
+        $crumbs[0][0] = $title;
+    }
+
+    return $crumbs;
+
+});

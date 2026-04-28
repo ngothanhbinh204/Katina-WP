@@ -1,0 +1,126 @@
+{
+    "key": "group_contact_page",
+    "title": "Contact Page Content",
+    "fields": [
+        {
+            "key": "field_contact_tab_banner",
+            "label": "Banner Settings",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_banner_image",
+            "label": "Banner Image",
+            "name": "contact_banner_image",
+            "type": "image",
+            "return_format": "array"
+        },
+        {
+            "key": "field_contact_banner_title",
+            "label": "Banner Title",
+            "name": "contact_banner_title",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_banner_subtitle",
+            "label": "Banner Subtitle",
+            "name": "contact_banner_subtitle",
+            "type": "wysiwyg",
+            "media_upload": 0
+        },
+        {
+            "key": "field_contact_tab_form",
+            "label": "Form Section",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_form_title",
+            "label": "Form Title",
+            "name": "contact_form_title",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_form_subtitle",
+            "label": "Form Subtitle",
+            "name": "contact_form_subtitle",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_form_shortcode",
+            "label": "Contact Form Shortcode",
+            "name": "contact_form_shortcode",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_tab_info",
+            "label": "Company Info",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_company_name",
+            "label": "Company Name",
+            "name": "contact_company_name",
+            "type": "text"
+        },
+        {
+            "key": "field_contact_info_list",
+            "label": "Information List",
+            "name": "contact_info_list",
+            "type": "repeater",
+            "layout": "block",
+            "sub_fields": [
+                {
+                    "key": "field_ci_icon",
+                    "label": "Icon Class",
+                    "name": "icon_class",
+                    "type": "text",
+                    "instructions": "VD: fa-solid fa-location-dot"
+                },
+                {
+                    "key": "field_ci_content",
+                    "label": "Content",
+                    "name": "content",
+                    "type": "wysiwyg"
+                }
+            ]
+        },
+        {
+            "key": "field_contact_tab_map",
+            "label": "Map Embed",
+            "name": "",
+            "type": "tab",
+            "placement": "top"
+        },
+        {
+            "key": "field_contact_iframe",
+            "label": "Google Map Iframe",
+            "name": "contact_iframe",
+            "type": "textarea",
+            "instructions": "Paste the whole iframe code from Google Maps here."
+        }
+    ],
+    "location": [
+        [
+            {
+                "param": "page_template",
+                "operator": "==",
+                "value": "templates/template-contact.php"
+            }
+        ]
+    ],
+    "menu_order": 0,
+    "position": "normal",
+    "style": "default",
+    "label_placement": "top",
+    "instruction_placement": "label",
+    "hide_on_screen": [
+        "the_content"
+    ],
+    "active": true,
+    "description": ""
+}

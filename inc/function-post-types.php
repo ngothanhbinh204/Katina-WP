@@ -223,35 +223,35 @@ function create_service_post_type() {
 }
 add_action('init', 'create_service_post_type');
 
-function create_service_taxonomy() {
-    $labels = array(
-        'name'              => 'Service Categories',
-        'singular_name'     => 'Service Category',
-        'search_items'      => 'Search Categories',
-        'all_items'         => 'All Categories',
-        'parent_item'       => 'Parent Category',
-        'parent_item_colon' => 'Parent Category:',
-        'edit_item'         => 'Edit Category',
-        'update_item'       => 'Update Category',
-        'add_new_item'      => 'Add New Category',
-        'new_item_name'     => 'New Category Name',
-        'menu_name'         => 'Categories',
-    );
+// function create_service_taxonomy() {
+//     $labels = array(
+//         'name'              => 'Service Categories',
+//         'singular_name'     => 'Service Category',
+//         'search_items'      => 'Search Categories',
+//         'all_items'         => 'All Categories',
+//         'parent_item'       => 'Parent Category',
+//         'parent_item_colon' => 'Parent Category:',
+//         'edit_item'         => 'Edit Category',
+//         'update_item'       => 'Update Category',
+//         'add_new_item'      => 'Add New Category',
+//         'new_item_name'     => 'New Category Name',
+//         'menu_name'         => 'Categories',
+//     );
 
-    $args = array(
-        'labels'            => $labels,
-        'hierarchical'      => true,
-        'public'            => true,
-        'show_ui'           => true,
-        'show_admin_column' => true,
-        'show_in_nav_menus' => true,
-        'query_var'         => true,
-        'rewrite'           => array('slug' => 'service-category'),
-    );
+//     $args = array(
+//         'labels'            => $labels,
+//         'hierarchical'      => true,
+//         'public'            => true,
+//         'show_ui'           => true,
+//         'show_admin_column' => true,
+//         'show_in_nav_menus' => true,
+//         'query_var'         => true,
+//         'rewrite'           => array('slug' => 'service-category'),
+//     );
 
-    register_taxonomy('service-category', array('service'), $args);
-}
-add_action('init', 'create_service_taxonomy');
+//     register_taxonomy('service-category', array('service'), $args);
+// }
+// add_action('init', 'create_service_taxonomy');
 
 /**
  * Enable Rank Math metabox and sitemap settings for our custom taxonomies (single, robust block)
@@ -266,7 +266,7 @@ add_action('plugins_loaded', function() {
     $custom_taxonomies = array(
         'career-category',
         'project-category',
-        'service-category',
+        // 'service-category',
     );
 
     // add taxonomies to Rank Math lists
@@ -305,7 +305,7 @@ add_filter( 'rank_math/frontend/breadcrumb/items', function( $crumbs, $class ) {
     $map = array(
         'career'  => 'career-category',
         'project' => 'project-category',
-        'service' => 'service-category',
+        // 'service' => 'service-category',
     );
 
     $post = get_queried_object();

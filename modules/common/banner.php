@@ -64,7 +64,7 @@ if (empty($title)) {
             
             <?php if ($subtitle): ?>
                 <div class="sub-title heading-3 font-semibold text-white">
-                    <?php echo esc_html($subtitle); ?>
+                    <?php echo wp_kses_post($subtitle); ?>
                 </div>
             <?php endif; ?>
         </div>

@@ -32,51 +32,8 @@ $form_shortcode = get_field('contact_form_shortcode');
                 <?php 
                 if ($form_shortcode) {
                     echo do_shortcode($form_shortcode);
-                } else {
-                    // Fallback static HTML form for visual representation during development phase
+                } 
                 ?>
-                    <form action="">
-                        <div class="wrap-form grid grid-cols-1 gap-5 text-Primary-1">
-                            <div class="form-group">
-                                <div class="label">Name*</div>
-                                <input type="text" name="name" placeholder="Họ và tên">
-                            </div>
-                            <div class="form-group">
-                                <div class="label">Title*</div>
-                                <select name="service" id="service">
-                                    <option value="1">Dịch vụ 1</option>
-                                    <option value="2">Dịch vụ 2</option>
-                                    <option value="3">Dịch vụ 3</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <div class="label">Mobile*</div>
-                                <input type="text" name="mobile" placeholder="Số điện thoại">
-                            </div>
-                            <div class="form-group">
-                                <div class="label">Email*</div>
-                                <input type="text" name="email" placeholder="Email">
-                            </div>
-                            <div class="form-group">
-                                <div class="label">Subject*</div>
-                                <select name="subject" id="subject">
-                                    <option value="1">Subject 1</option>
-                                    <option value="2">Subject 2</option>
-                                    <option value="3">Subject 3</option>
-                                </select>
-                            </div>
-                            <div class="form-group textarea w-full col-span-full">
-                                <div class="label">Message*</div>
-                                <textarea name="message" placeholder="Nội dung"></textarea>
-                            </div>
-                        </div>
-                        <div class="form-submit mt-5">
-                            <button class="btn btn-primary style-default"> <span>Send</span>
-                                <div class="icon"> </div>
-                            </button>
-                        </div>
-                    </form>
-                <?php } ?>
             </div>
         </div>
     </div>

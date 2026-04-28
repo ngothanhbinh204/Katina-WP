@@ -173,10 +173,10 @@ $description = $recruit_list['description'];
                 <table>
                     <thead>
                         <tr>
-                            <th><?php _e('STT', 'canhcamtheme'); ?></th>
-                            <th><?php _e('VỊ TRÍ ỨNG TUYỂN ', 'canhcamtheme'); ?></th>
-                            <th><?php _e('KHU VỰC', 'canhcamtheme'); ?></th>
-                            <th><?php _e('HẠN NỘP HỒ SƠ', 'canhcamtheme'); ?></th>
+                            <th><?php _e('No', 'canhcamtheme'); ?></th>
+                            <th><?php _e('Locations', 'canhcamtheme'); ?></th>
+                            <th><?php _e('Location', 'canhcamtheme'); ?></th>
+                            <th><?php _e('Deadline', 'canhcamtheme'); ?></th>
                             <th></th>
                         </tr>
                     </thead>
@@ -204,10 +204,10 @@ $description = $recruit_list['description'];
                                 $deadline = $information['application_deadline'];
                                 ?>
                                 <tr>
-                                    <td data-attr="STT "><?php echo sprintf("%02d", $count); ?></td>
-                                    <td data-attr="Vị trí "><a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
-                                    <td data-attr="NƠI LÀM VIỆC"><?php echo $location ? $location : ''; ?></td>
-                                    <td data-attr="hạn nộp hồ sơ"><?php echo $deadline ? $deadline : ''; ?></td>
+                                    <td data-attr="<?php _e('NO', 'canhcamtheme'); ?>"><?php echo sprintf("%02d", $count); ?></td>
+                                    <td data-attr="<?php _e('Locations', 'canhcamtheme'); ?>"><a class="title" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></td>
+                                    <td data-attr="<?php _e('Location', 'canhcamtheme'); ?>"><?php echo $location ? $location : ''; ?></td>
+                                    <td data-attr="<?php _e('Deadline', 'canhcamtheme'); ?>"><?php echo $deadline ? $deadline : ''; ?></td>
                                     <td>
                                         <div class="flex-center btn-wrap"> <a class="btn btn-tertiary" href="<?php the_permalink(); ?>"><em class="fa-light fa-eye"></em><span><?php _e('Xem chi tiết', 'canhcamtheme'); ?></span></a></div>
                                     </td>

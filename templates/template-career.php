@@ -6,17 +6,29 @@ Template Name: Page Career
 get_header();
 
 // Get fields from option
-$highlight_text = get_field('career_highlight_text', 'option');
-$we_title = get_field('career_work_environment_title', 'option');
-$we_list = get_field('career_work_environment_list', 'option');
-$training_title = get_field('career_training_title', 'option');
-$training_list = get_field('career_training_list', 'option');
-$list_title = get_field('career_list_title', 'option');
-$list_subtitle = get_field('career_list_subtitle', 'option');
+$highlight_text = get_field('career_highlight_text');
+$we_list = get_field('career_work_environment_list');
+$training_title = get_field('career_training_title');
+$training_list = get_field('career_training_list');
+$list_title = get_field('career_list_title');
+$list_subtitle = get_field('career_list_subtitle');
+
+$image = get_field('career_banner_image');
+$title = get_field('career_banner_title');
+$title = $title ? $title : get_the_title();
+$subtitle = get_field('career_banner_subtitle');
+$subtitle = $subtitle ? $subtitle : get_the_excerpt();
+
 ?>
 
 <main>
-    <?php get_template_part('modules/common/banner'); ?>
+    <?php
+    get_template_part('modules/common/banner', null, array(
+        'image' => $image,
+        'title' => $title,
+        'subtitle' => $subtitle
+    ));
+    ?>
 
     <?php if ($highlight_text): ?>
         <section class="recruit-banner bg-Primary-1 relative overflow-hidden xl:py-15 py-10">
@@ -28,6 +40,7 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
         <section class="recruit-1 relative overflow-hidden">
             <?php foreach ($we_list as $index => $item): 
                 $image = $item['image'];
+                $title = $item['title'];
                 $content = $item['content'];
             ?>
                 <div class="container-fluid bg-grey-50">
@@ -43,7 +56,7 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
                         </div>
                         <div class="col w-full lg:w-1/2">
                             <div class="txt px-4 flex flex-col justify-center xl:pl-20 rem:lg:max-w-[760px] rem:xl:max-w-[790px] rem:2xl:max-w-[700px] h-full col-left">
-                                <h2 class="heading-1 mb-base text-Primary-1"><?php echo esc_html($we_title); ?></h2>
+                                <h2 class="heading-1 mb-base text-Primary-1"><?php echo esc_html($title); ?></h2>
                                 <div class="scrollbar-wrap">
                                     <div class="format-content space-y-4">
                                         <?php echo wp_kses_post($content); ?>
@@ -85,7 +98,7 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
                                             </div>
                                             <div class="wrap-btn"> 
                                                 <a href="javascript:;"> 
-                                                    <span><?php _e('Xem thêm', 'canhcamtheme'); ?></span>
+                                                    <span><?php _e('Read More', 'canhcamtheme'); ?></span>
                                                     <div class="icon"><i class="fa-light fa-angle-down"></i></div>
                                                 </a>
                                             </div>
@@ -103,7 +116,7 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
     <section class="recruit-list section-py bg-Utility-gray-50">
         <div class="container">
             <div class="wrap-heading text-center mb-base">
-                <h2 class="heading-36 font-extrabold mb-3 text-Primary-1 text-center"><?php echo esc_html($list_title ?: __('Danh sách vị trí đang tuyển dụng', 'canhcamtheme')); ?></h2>
+                <h2 class="heading-36 font-extrabold mb-3 text-Primary-1 text-center"><?php echo esc_html($list_title ?: __('List of job openings', 'canhcamtheme')); ?></h2>
                 <?php if ($list_subtitle): ?>
                     <div class="sub-title"><?php echo nl2br(esc_html($list_subtitle)); ?></div>
                 <?php endif; ?>
@@ -113,10 +126,10 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
                     <table>
                         <thead>
                             <tr>
-                                <th><?php _e('STT', 'canhcamtheme'); ?></th>
-                                <th><?php _e('VỊ TRÍ ỨNG TUYỂN', 'canhcamtheme'); ?></th>
-                                <th><?php _e('KHU VỰC', 'canhcamtheme'); ?></th>
-                                <th><?php _e('HẠN NỘP HỒ SƠ', 'canhcamtheme'); ?></th>
+                                <th><?php _e('No', 'canhcamtheme'); ?></th>
+                                <th><?php _e('Locations', 'canhcamtheme'); ?></th>
+                                <th><?php _e('Location', 'canhcamtheme'); ?></th>
+                                <th><?php _e('Deadline', 'canhcamtheme'); ?></th>
                                 <th></th>
                             </tr>
                         </thead>
@@ -138,10 +151,10 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
                                     $deadline = $information['application_deadline'] ?? '';
                             ?>
                                 <tr>
-                                    <td data-attr="STT"><?php echo sprintf("%02d", $count); ?></td>
-                                    <td data-attr="Vị trí"><a class="title" href="<?php the_permalink(); ?>"><?php echo esc_html($position); ?></a></td>
-                                    <td data-attr="NƠI LÀM VIỆC"><?php echo esc_html($location); ?></td>
-                                    <td data-attr="hạn nộp hồ sơ"><?php echo $deadline ? date('d/m/Y', strtotime($deadline)) : ''; ?></td>
+                                    <td data-attr="<?php _e('No', 'canhcamtheme'); ?>"><?php echo sprintf("%02d", $count); ?></td>
+                                    <td data-attr="<?php _e('Locations', 'canhcamtheme'); ?>"><a class="title" href="<?php the_permalink(); ?>"><?php echo esc_html($position); ?></a></td>
+                                    <td data-attr="<?php _e('Location', 'canhcamtheme'); ?>"><?php echo esc_html($location); ?></td>
+                                    <td data-attr="<?php _e('Deadline', 'canhcamtheme'); ?>"><?php echo $deadline ? date('d/m/Y', strtotime($deadline)) : ''; ?></td>
                                     <td>
                                         <div class="flex-center btn-wrap"> 
                                             <a class="btn btn-tertiary" href="<?php the_permalink(); ?>">
@@ -165,7 +178,7 @@ $list_subtitle = get_field('career_list_subtitle', 'option');
                 ?>
                     <div class="ajax-btn-wrap mx-auto w-fit pt-9" id="load-more-container">
                         <a class="btn btn-primary style-default btn-load-more" id="load-more-btn">
-                            <span><?php _e('Xem thêm', 'canhcamtheme'); ?></span>
+                            <span><?php _e('Read More', 'canhcamtheme'); ?></span>
                             <em class="fa-regular fa-chevron-down"></em>
                         </a>
                     </div>

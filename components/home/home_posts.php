@@ -26,7 +26,7 @@ $other_post = get_sub_field('other_post');
                         <div class="txt col-left h-full p-6 lg:px-7">
                             <time class="text-white mb-5"><?php echo get_the_date('d.m.Y', $highlight_post[0]->ID); ?></time>
                             <div class="title pb-5 mb-5 border-b border-white border-opacity-20"><a href="<?php echo get_permalink($highlight_post[0]->ID); ?>" class="text-lg uppercase font-bold line-clamp-3 group-hover:underline"><?php echo get_the_title($highlight_post[0]->ID); ?></a></div>
-                            <div class="desc text-15 leading-140 scrollbar-wrap"><?php echo wp_trim_words(get_the_excerpt($highlight_post[0]->ID), 25, '...'); ?></div>
+                            <div class="desc text-15 leading-140 scrollbar-wrap"><?php echo wp_trim_words(get_the_excerpt($highlight_post[0]->ID), 999, '...'); ?></div>
                         </div>
                     </div>
                 <?php else :
@@ -41,7 +41,7 @@ $other_post = get_sub_field('other_post');
                         while ($latest_post->have_posts()) : $latest_post->the_post();
                             $post_date = get_the_date('d.m.Y');
                             $post_title = get_the_title();
-                            $post_excerpt = wp_trim_words(get_the_excerpt(), 25, '...');
+                            $post_excerpt = wp_trim_words(get_the_excerpt(), 999, '...');
                             $post_link = get_permalink();
                             $thumbnail = get_the_post_thumbnail_url(get_the_ID(), 'large') ?: 'https://picsum.photos/1920/1080?nature=1';
                             ?>

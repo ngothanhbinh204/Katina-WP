@@ -224,6 +224,25 @@
             "type": "text"
         },
         {
+            "key": "field_media_categories",
+            "label": "Categories",
+            "name": "media_categories",
+            "type": "taxonomy",
+            "taxonomy": "category",
+            "field_type": "multi_select",
+            "return_format": "object",
+            "add_term": 0,
+            "load_terms": 0,
+            "save_terms": 0
+        },
+        {
+            "key": "field_media_button",
+            "label": "Show More Button",
+            "name": "media_button",
+            "type": "link",
+            "return_format": "array"
+        },
+        {
             "key": "field_tab_contact",
             "label": "Contact Section",
             "name": "",
